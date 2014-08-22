@@ -1,0 +1,5 @@
+composer.phar
+composer.lock
+/nbproject/private/
+/.vagrant
+/vagrant/nginx/server-configs-nginx-master/sites-enabled/*
