@@ -1,0 +1,32 @@
+#!/usr/bin/expect -f
+
+spawn /usr/bin/mysql_secure_installation
+
+sleep 2
+expect "Enter current password for root (enter for none):"
+send "\r"
+
+sleep 2
+expect "Set root password? [Y/n]"
+send "y\r"
+
+sleep 1
+expect "New password:"
+send "root\r"
+
+sleep 1
+expect "Re-enter new password:"
+send "root\r"
+
+sleep 2
+send "y\r"
+
+sleep 2
+send "y\r"
+
+sleep 2
+send "y\r"
+
+sleep 2
+send "y\r"
+
