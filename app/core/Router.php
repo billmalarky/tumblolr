@@ -5,6 +5,7 @@ class Router
     
     protected $controller;
     protected $actionMethod;
+    protected $queryString = null;
     protected $parameters = array();
     
     public function __construct($route){
@@ -18,6 +19,15 @@ class Router
             $this->actionMethod = 'index';
         }
         else{
+            
+            //Extract query string if exists
+            if (strpos($route, '?') !== false){
+                $queryExplodeRt = explode('?',$route);
+                $route = array_shift($queryExplodeRt);
+                $this->queryString = implode($queryExplodeRt);
+            }
+            
+            //Get controller, action method, and parameters pieces.
             $routeArr =  explode('/',$route);
             
             //Set controller, action method, and any included get parameters.
@@ -48,7 +58,7 @@ class Router
         //Load class and instantiate controller
         if (is_readable($controllerPath) && is_file($controllerPath)){
             include($controllerPath);
-            $controller = new $controllerName($user, $this->parameters, $view);
+            $controller = new $controllerName($user, $this->parameters, $this->queryString, $view);
         }
         else{
             throw new Exception($controllerName . ' controller does not exist or is not readable.');
