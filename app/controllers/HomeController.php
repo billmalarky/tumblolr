@@ -10,10 +10,17 @@ class HomeController extends Controller
     public function index(){
         
         $data = [];
+        $data['user'] = $this->user;
         
-        $test = new Test();
+        //Add some flash data
+        $this->user->addFlashData('message', array('status' => 'alert-success', 'content' => 'Welcome!'));
         
-        $data['test'] = $test->test();
+        $post = new Post();
+        
+        $data['userInfo'] = $post->getUserInfo();
+        
+        var_dump($data['userInfo']);
+        die();
         
         $this->view->loadTemplate('home', $data);
     }

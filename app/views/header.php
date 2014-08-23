@@ -1,39 +1,27 @@
-<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+<div class="navbar navbar-default" role="navigation">
     <div class="container">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-batea-navbar-collapse-1">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-tumblolr-navbar-collapse-1">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            {{ link_to('/', 'Batea', ['class'=>'navbar-brand']) }}
+            <a href="<?php echo WEB_PATH ?>" class="navbar-brand">Tumblolr</a>
         </div>
-        <div class="collapse navbar-collapse" id="bs-batea-navbar-collapse-1">
+        <div class="collapse navbar-collapse" id="bs-tumblolr-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                @if(Auth::check())
-                    <li>{{ link_to('/dashboard', 'Dashboard', ['class'=>'active']) }}</li>
-                    <li>{{ link_to('/activity', 'Activity') }}</li>
-                    <li>{{ link_to('/analytics', 'Analytics') }}</li>
-                    <li>{{ link_to('/keywords', 'Keywords') }}</li>
-                @else
-                    <li>{{ link_to('/about', 'About') }}</li>
-                @endif
+                <li><a href="<?php echo WEB_PATH ?>" class="">Home</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                @if(Auth::check())
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ Auth::user()->email }} <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>{{ link_to('/users/account', 'Edit Account') }}</li>
-                            <li class="divider"></li>
-                            <li>{{ link_to('/users/logout', 'Logout') }}</li>
-                        </ul>
-                   </li>
-                @else
-                    <li>{{ link_to('/users/register', 'Sign Up') }}</li>
-                    <li>{{ link_to('/users/login', 'Login') }}</li>
-                @endif
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">More Info <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="http://reidmayo.com" class="">Author's Site</a></li>
+                        <li class="divider"></li>
+                        <li><a href="http://reidmayo.com/Mayo-resume-updated-7-8-2014.doc" class="">Author's Resume</a></li>
+                    </ul>
+               </li>
             </ul>
         </div> 
     </div>

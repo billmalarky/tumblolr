@@ -1,1 +1,1 @@
-This is home. Here is some data from a model <?php echo $data['test']; ?>.
+<h3>Welcome to Tumblolr where we display all the best LOL's from tumblr</h3>

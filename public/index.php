@@ -9,7 +9,8 @@ define('APP_PATH', realpath(__DIR__.'/../app/') . '/');
 define('WEB_PATH', 'http://' . $_SERVER['SERVER_NAME'] . '/');
 
 //Include Core Classes and Files
-include(APP_PATH . 'core/Database.php');
+include(APP_PATH . 'core/Databaseinstance.php'); //Database connection information in here.
+include(APP_PATH . 'core/Tumblrinstance.php'); //Tumblr API connection information in here.
 include(APP_PATH . 'core/Model.php');
 include(APP_PATH . 'core/View.php');
 include(APP_PATH . 'core/Controller.php');

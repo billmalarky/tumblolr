@@ -20,11 +20,16 @@ class View
         
         if (!$contentOnly){
             include($this->templatePath . 'htmlheader.php');
+            include($this->templatePath . 'header.php');
+            include($this->templatePath . 'containertop.php');
         }
         
+        //Include content
         include($filepath);
         
         if (!$contentOnly){
+            include($this->templatePath . 'containerbottom.php');
+            include($this->templatePath . 'footer.php');
             include($this->templatePath . 'htmlfooter.php');
         }
         
