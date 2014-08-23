@@ -13,9 +13,9 @@ class Router
         //Clean up route.
         $route = trim(strtolower($route), '/');
         
-        //If route is empty default to home controller index action method, else run routing logic.
+        //If route is empty default to index controller index action method, else run routing logic.
         if (empty($route)){
-            $this->controller = 'home';
+            $this->controller = 'index';
             $this->actionMethod = 'index';
         }
         else{
@@ -32,10 +32,16 @@ class Router
             
             //Set controller, action method, and any included get parameters.
             if (!empty($routeArr)){
-                $this->controller = array_shift($routeArr);
+                $controllerFragment = array_shift($routeArr);
+                $controllerFragmentArr = explode('.',$controllerFragment); //Trim off extraneous file extensions
+                $controller = reset($controllerFragmentArr);
+                $this->controller = $controller;
             }
             if (!empty($routeArr)){
-                $this->actionMethod = array_shift($routeArr);
+                $actionMethodFragment = array_shift($routeArr);
+                $actionMethodFragmentArr = explode('.',$actionMethodFragment);//Trim off extraneous file extensions
+                $actionMethod = reset($actionMethodFragmentArr); 
+                $this->actionMethod = $actionMethod;
             }
             while (!empty($routeArr)){
                 

@@ -1,10 +1,10 @@
 <?php
 
-class HomeController extends Controller
+class IndexController extends Controller
 {
     
-    public function __construct(User $user, Array $parameters = array(), View $view){
-        parent::__construct($user, $parameters, $view);
+    public function __construct(User $user, Array $parameters = array(), $queryString, View $view){
+        parent::__construct($user, $parameters, $queryString, $view);
     }
     
     public function index(){

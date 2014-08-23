@@ -20,11 +20,11 @@ function Lib_PSR_0_autoloader($className){
     $filepath = APP_PATH . 'lib/';
     $pathSections = explode('\\', $className);
     
-    for ($i = 0; count($pathSections) > 1; $i++){
+    //First build directory path to class file, then append class file name.
+    for ($i = 0; $i < (count($pathSections) - 1); $i++){
         $filepath .= $pathSections[$i] . '/';
     }
-    
-    $filepath .= $pathSections[$i] . '.php';
+    $filepath .= $pathSections[$i+1] . '.php';
     
     if (is_readable($filepath) == false || is_file($filepath) == false) {
         return false;
@@ -34,7 +34,7 @@ function Lib_PSR_0_autoloader($className){
     
 }
 // Error handling autoload function to cleanly handle error reporting
-function Error_autoloader($classname){
+function Error_autoloader($className){
     throw new Exception($className . ' class not found.');
     return false;
 }
