@@ -43,6 +43,10 @@ yum install -y gcc gcc-c++ autoconf automake
 pecl install Xdebug
 
 # Install xdebug.ini file.
+# Note that xdebug.ini xdebug.remote_host=ip.num.goes.here may need to be updated to reach host machine.
+# Run this command to find host machine IP address.
+# netstat -rn | grep "^0.0.0.0 " | cut -d " " -f10
+# More info: http://stackoverflow.com/a/19940738
 ln -s $VAGRANT_DATA_DIR/php/xdebug.ini /etc/php.d/xdebug.ini
 
 
