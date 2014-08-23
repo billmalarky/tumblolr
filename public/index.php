@@ -6,6 +6,7 @@
 //Define Global Constants
 define('ROOT_PATH', realpath(__DIR__.'/../') . '/');
 define('APP_PATH', realpath(__DIR__.'/../app/') . '/');
+define('WEB_PATH', 'http://' . $_SERVER['SERVER_NAME'] . '/');
 
 //Include Core Classes and Files
 include(APP_PATH . 'core/Database.php');
