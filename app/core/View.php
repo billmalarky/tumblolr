@@ -9,7 +9,7 @@ class View
         $this->templatePath = APP_PATH . 'views/';
     }
     
-    public function loadTemplate($templateName, Array $data = array()){
+    public function loadTemplate($templateName, Array $data = array(), $contentOnly = false){
         
         $filepath = $this->templatePath . strtolower($templateName) . '.php';
         
@@ -18,7 +18,16 @@ class View
             return false;
         }
         
+        if (!$contentOnly){
+            include($this->templatePath . 'htmlheader.php');
+        }
+        
         include($filepath);
+        
+        if (!$contentOnly){
+            include($this->templatePath . 'htmlfooter.php');
+        }
+        
         return true;
     }
     
