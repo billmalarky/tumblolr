@@ -1,0 +1,25 @@
+{
+
+  "name": "mayo/tumblolr",
+
+  "description": "A web app for the tumblr tech test.",
+  "authors": [
+    {
+      "name": "Reid Mayo",
+      "email": "reidmayo@gmail.com",
+      "homepage": "http://reidmayo.com",
+      "role": "developer"
+    }
+  ],
+
+  "require": {
+    "tumblr/tumblr": "0.1.1"
+  },
+
+  "autoload": {
+    "classmap": [
+        "app/models"
+    ]
+  }
+
+}

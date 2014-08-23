@@ -16,7 +16,7 @@ include(APP_PATH . 'core/View.php');
 include(APP_PATH . 'core/Controller.php');
 include(APP_PATH . 'core/Router.php');
 include(APP_PATH . 'core/User.php');
-include(APP_PATH . 'core/Autoload.php');
+include(ROOT_PATH . 'vendor/autoload.php');
 
 //Begin routing
 $router = new Router($_SERVER['REQUEST_URI']);

@@ -11,6 +11,8 @@ class IndexController extends Controller
         
         $data = [];
         $data['user'] = $this->user;
+        $data['parameters'] = $this->parameters;
+        $data['queryString'] = $this->queryString;
         
         //Add some flash data
         $this->user->addFlashData('message', array('status' => 'alert-success', 'content' => 'Welcome!'));
@@ -19,7 +21,7 @@ class IndexController extends Controller
         
         $data['userInfo'] = $post->getUserInfo();
         
-        var_dump($data['userInfo']);
+        var_dump($data);
         die();
         
         $this->view->loadTemplate('home', $data);

@@ -17,7 +17,12 @@ class Tumblrinstance
     public static function getTumblrApiConnection(){
     	
         if (Tumblrinstance::$api === null){
-            Tumblrinstance::$api = new Tumblr\API\Client(CONSUMER_KEY, CONSUMER_SECRET, TOKEN, TOKEN_SECRET);
+            Tumblrinstance::$api = new Tumblr\API\Client(
+                        Tumblrinstance::CONSUMER_KEY, 
+                        Tumblrinstance::CONSUMER_SECRET, 
+                        Tumblrinstance::TOKEN, 
+                        Tumblrinstance::TOKEN_SECRET
+                    );
         }
         
         return Tumblrinstance::$api;

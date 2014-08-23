@@ -1,0 +1,11 @@
+Setup Instructions
+
+Run "vagrant up" in project directory (with vagrant installed).
+Note that this vagrant install makes use of symlinks, so in windows 7 you need to run virtualbox and cygwin as an administrator.
+
+//mysql_secure_install and create database as well as import data stuff should be scripted in vagant boostrap
+
+ssh into vagrant.
+
+From the /vagrant directory, run the command
+php /usr/local/bin/composer install
