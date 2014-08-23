@@ -88,6 +88,8 @@ service nginx restart
 service php-fpm restart
 service mysqld restart
 
+# Build DB structure via migration
+php /vagrant/app/migrations/install-0.0.1.php
 
 echo "Server provisioning complete!"
 echo "Now you must run sudo /usr/bin/mysql_secure_installation. Set mysql root password to \"root\""
