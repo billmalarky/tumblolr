@@ -7,7 +7,9 @@ class IndexController extends Controller
         parent::__construct($user, $parameters, $queryString, $view);
     }
     
-    public function index(){
+    public function test(){
+        
+        
         
         $data = [];
         $data['user'] = $this->user;
@@ -15,16 +17,36 @@ class IndexController extends Controller
         $data['queryString'] = $this->queryString;
         
         //Add some flash data
-        $this->user->addFlashData('message', array('status' => 'alert-success', 'content' => 'Welcome!'));
+        $this->user->setFlashData('message', array('status' => 'alert-success', 'content' => 'Welcome!'));
         
         $post = new Post();
         
-        $data['userInfo'] = $post->getUserInfo();
+        //$data['userInfo'] = $post->getUserInfo();
+        $data['tumblrPosts'] = $post->getTaggedTumblrPosts($tag);
         
         var_dump($data);
         die();
         
         $this->view->loadTemplate('home', $data);
+    }
+    
+    public function index(){
+        
+        //Init Get and Post data.
+        $tag = (isset($_POST['tag'])) ? $_POST['tag']: 'lol';
+        
+        //Init Models
+        $post = new Post();
+        
+        //Init view data
+        $data = [];
+        $data['user'] = $this->user;
+        $data['tag'] = $tag;
+        $data['tumblrPosts'] = $post->getTaggedTumblrPosts($tag);
+        
+        //Load template
+        $this->view->loadTemplate('home', $data);
+        
     }
     
 }

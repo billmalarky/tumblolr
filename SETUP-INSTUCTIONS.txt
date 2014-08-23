@@ -1,5 +1,10 @@
 Setup Instructions
 
+Add the following lines to your hosts file:
+# Vagrant
+192.168.100.100 tumblrtest.local
+192.168.100.100 www.tumblrtest.local
+
 Run "vagrant up" in project directory (with vagrant installed).
 Note that this vagrant install makes use of symlinks, so in windows 7 you need to run virtualbox and cygwin as an administrator.
 

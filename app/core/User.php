@@ -4,7 +4,8 @@
 class User extends Model
 {
     
-    public $flashData = null;
+    protected $flashData = null;
+    protected $session = null;
     
     public function __construct(){
         session_start();
@@ -15,6 +16,11 @@ class User extends Model
             $_SESSION['flashData'] = null;
         }
         
+        // Set session data to user object
+        if (isset($_SESSION['session'])){
+            $this->session = $_SESSION['session'];
+        }
+        
     }
     
     /**
@@ -23,8 +29,27 @@ class User extends Model
      * $noticeType = alert-success, alert-warning, alert-info, alert-danger
      * message => array('status' => $noticeType, 'content' => 'message content')
      */
-    public function addFlashData($key, $data){
+    public function setFlashData($key, $data){
         $_SESSION['flashData'][$key] = $data;
+    }
+    
+    /**
+     * Add generic data to the user's session.
+     */
+    public function setSessionData($key, $data){
+        $_SESSION['session'][$key] = $data;
+    }
+    
+    /**
+     * Retrieve generic data from the user's session.
+     */
+    public function getSessionData($key){
+        if (isset($this->session[$key])){
+            return $this->session[$key];
+        }
+        else{
+            return false;
+        }
     }
     
     public function getFlashMessageStatus(){
@@ -33,6 +58,20 @@ class User extends Model
     
     public function getFlashMessageContent(){
         return (isset($this->flashData['message'])) ? $this->flashData['message']['content'] : false;
+    }
+    
+    /**
+     * Determine when to show the app welcome message to user. User should only see it once per session.
+     * @return boolean
+     */
+    public function showWelcomeMessage(){
+        if ($this->getSessionData('welcomeMessage') === false){
+            $this->setSessionData('welcomeMessage', 1);
+            return true;
+        }
+        else{
+            return false;
+        }
     }
     
 }
