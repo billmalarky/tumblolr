@@ -4,6 +4,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Tumblolr</title>
     
+    <link rel="shortcut icon" href="<?php echo $this->getUrl() ?>img/favicon.ico" />
+    
     <link rel="stylesheet" type="text/css" href="<?php echo $this->getUrl() ?>packages/bootstrap/css/bootstrap.min.css" media="all" />
     <link rel="stylesheet" type="text/css" href="<?php echo $this->getUrl() ?>css/main.css" media="all" />
     
