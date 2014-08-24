@@ -36,4 +36,25 @@ class View
         return true;
     }
     
+    /**
+     * Used to create URLs inside views.
+     * @param type $path
+     * @param array $parameters
+     */
+    public function getUrl($path = '', Array $parameters = array()){
+        
+        $url = WEB_PATH;
+        
+        if ($path){
+            $url .= $path;
+        }
+        
+        foreach ($parameters as $key => $value){
+            $url .= $key . '/' . $value . '/';
+        }
+        
+        return $url;
+        
+    }
+    
 }

@@ -17,6 +17,9 @@
         window.tumblolr.TagformObj = new window.tumblolr.Tagform({
             "baseUrl": window.tumblolr.CoreObj.coreProperties.baseUrl
         });
+        window.tumblolr.SortformObj = new window.tumblolr.Sortform({
+            "baseUrl": window.tumblolr.CoreObj.coreProperties.baseUrl
+        });
         
         //Attach event bindings.
         
@@ -24,6 +27,17 @@
         $body.on('click','#tagFormSubmitButton', function(e){
             e.preventDefault();
             window.tumblolr.TagformObj.submitTagForm.call($('#tagForm'), $('#postTagInput'));
+        });
+        
+        //Sort Form Button clicks
+        $body.on('click','#sortTypeButton', function(e){
+            e.preventDefault();
+            window.tumblolr.SortformObj.submitSort.call(this);
+        });
+        
+        $body.on('click','#orderToggleButton', function(e){
+            e.preventDefault();
+            window.tumblolr.SortformObj.submitOrder.call($('#orderToggleButton'));
         });
         
     });

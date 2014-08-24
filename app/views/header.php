@@ -7,11 +7,11 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="<?php echo WEB_PATH ?>" class="navbar-brand">Tumblolr</a>
+            <a href="<?php echo $this->getUrl() ?>" class="navbar-brand">Tumblolr</a>
         </div>
         <div class="collapse navbar-collapse" id="bs-tumblolr-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li><a href="<?php echo WEB_PATH ?>" class="">Home</a></li>
+                <li><a href="<?php echo $this->getUrl() ?>" class="">Home</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">

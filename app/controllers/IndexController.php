@@ -32,27 +32,32 @@ class IndexController extends Controller
     
     public function index(){
         
-        //Init Get data and validate.
+        //Init Get data
         $tag = (isset($this->parameters['tag'])) ? $this->parameters['tag'] : 'lol';
         $page = (isset($this->parameters['page'])) ? (int) $this->parameters['page'] : 1;
-        if ($page < 1){
-            $page = 1;
-        }
-        
+        $sort = ($this->user->getSessionData('sort')) ? $this->user->getSessionData('sort'): 'date';
+        $order = ($this->user->getSessionData('order')) ? $this->user->getSessionData('order'): 'desc';
         
         //Init Models
         $post = new Post();
         $pager = new Pager();
+        $postSorter = new Postsorter($sort, $order);
         
         //Init view data
         $data = [];
         $data['user'] = $this->user;
         $data['tag'] = $tag;
-        $tumblrPosts = $post->getTaggedTumblrPosts($tag);
+        $totalPosts = $post->getTaggedTumblrPosts($tag);
+        
+        //Order Posts
+        $sortedPosts = $postSorter->sortPosts($totalPosts);
+        $data['sort'] = $sort;
+        $data['order'] = $order;
+        $data['orderToggle'] = ($order == 'desc') ? 'asc': 'desc';
         
         //Paginate posts
-        $data['tumblrPosts'] = $pager->paginatePosts($tumblrPosts, $page, 16);
-        $data['pageCount'] = $pager->getPageCount($tumblrPosts, 16);
+        $data['tumblrPosts'] = $pager->paginatePosts($totalPosts, $page, 16);
+        $data['pageCount'] = $pager->getPageCount($totalPosts, 16);
         $data['pages'] = $pager->getPagesArray($data['pageCount']);
         $data['pageNum'] = $page;
         
