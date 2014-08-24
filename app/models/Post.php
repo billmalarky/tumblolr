@@ -15,6 +15,9 @@ class Post extends Model
      * then if we don't have any recent posts saved locally we hit the tumblr api enough times to get 100 posts
      * and then save those posts in the database.
      * 
+     * Default timeout limit for tags is set to 30 minutes. So the feed will only update from the tumblr api
+     * every 30 minutes once the posts have been cached in the DB.
+     * 
      * This helps site performance and also rate limits us from hitting tumblr's API too much.
      * @param type $tag
      * @return type
@@ -23,7 +26,7 @@ class Post extends Model
         
         //Check if there are recent posts in the DB with this tag
         $freshDate = new DateTime(date('Y-m-d H:i:s'));
-        $freshDate->sub(new DateInterval('PT1000M'));
+        $freshDate->sub(new DateInterval('PT30M'));
         
         $dbPosts = $this->getDbTaggedPosts($tag, $freshDate, 100, true);
         

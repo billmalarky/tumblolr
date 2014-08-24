@@ -5,12 +5,12 @@
         <p>Enter a tag to see posts from tumblr with that tag.</p>
     </div>
 <?php endif; ?>
-<form action="<?php echo WEB_PATH ?>" method="post" class="form-inline" role="form">
+<form id="tagForm" class="form-inline" role="form">
   <div class="form-group">
     <label class="sr-only" for="postTagInput">Post Tag</label>
     <input type="text" name="tag" class="form-control" id="postTagInput" placeholder="Enter Post Tag">
   </div>
-  <button type="submit" class="btn btn-default">Load Tagged Posts</button>
+  <button id="tagFormSubmitButton" type="submit" class="btn btn-default">Load Tagged Posts</button>
 </form>
 <h3>Showing posts tagged with <?php echo $data['tag'] ?></h3>
 <div class="posts">

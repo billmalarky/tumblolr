@@ -7,17 +7,24 @@
     
     'use strict';
     
-    
     $(document).ready(function(){
         
         //Generate PseudoGlobals
         var $body = $(document.body),
         $window = $(window);
         
-        if (window.location.href.indexOf('home/index') > -1){
-            
-        }
+        //Instantiate Objects
+        window.tumblolr.TagformObj = new window.tumblolr.Tagform({
+            "baseUrl": window.tumblolr.CoreObj.coreProperties.baseUrl
+        });
         
+        //Attach event bindings.
+        
+        //On tag form button click, 
+        $body.on('click','#tagFormSubmitButton', function(e){
+            e.preventDefault();
+            window.tumblolr.TagformObj.submitTagForm.call($('#tagForm'), $('#postTagInput'));
+        });
         
     });
 

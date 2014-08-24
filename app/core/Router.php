@@ -28,7 +28,16 @@ class Router
             }
             
             //Get controller, action method, and parameters pieces.
-            $routeArr =  explode('/',$route);
+            //Validate that $route is not empty. If it is, set controller and action method to default (index).
+            if (trim($route) !== ''){
+                $routeArr =  explode('/',$route);
+            }
+            else{
+                $routeArr = array();
+                $this->controller = 'index';
+                $this->actionMethod = 'index';
+            }
+            
             
             //Set controller, action method, and any included get parameters.
             if (!empty($routeArr)){

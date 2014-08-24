@@ -20,6 +20,7 @@
             "baseUrl": "<?php echo WEB_PATH ?>"
         });
     </script>
+    <script type="text/javascript" src="<?php echo WEB_PATH ?>js/tagform.js"></script>
     <script type="text/javascript" src="<?php echo WEB_PATH ?>js/main.js"></script>
     
 </head>

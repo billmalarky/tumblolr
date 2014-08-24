@@ -16,7 +16,6 @@
                 
                 var defaults = {
                     baseUrl: '',
-                    pdfImageEditor: 'paintweb'
                 };
                 
                 this.coreProperties = $.extend({}, defaults, options || {});

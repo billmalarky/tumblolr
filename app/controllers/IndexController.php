@@ -33,7 +33,7 @@ class IndexController extends Controller
     public function index(){
         
         //Init Get and Post data.
-        $tag = (isset($_POST['tag'])) ? $_POST['tag']: 'lol';
+        $tag = (isset($this->parameters['tag'])) ? $this->parameters['tag'] : 'lol';
         
         //Init Models
         $post = new Post();
@@ -43,6 +43,9 @@ class IndexController extends Controller
         $data['user'] = $this->user;
         $data['tag'] = $tag;
         $data['tumblrPosts'] = $post->getTaggedTumblrPosts($tag);
+        
+        //Limit posts
+        $data['tumblrPosts'] = array_slice($data['tumblrPosts'], 0, 5);
         
         //Load template
         $this->view->loadTemplate('home', $data);
