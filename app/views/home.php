@@ -44,7 +44,24 @@
             </div>
         <?php endforeach; ?>
     <?php else: ?>
-    <p>Sorry. There are no posts with the "<?php echo $data['tag'] ?>" tag.</p>
+        <p>Sorry. There are no <?php if($data['pageNum']>1){echo 'more ';} ?>posts with the "<?php echo $data['tag'] ?>" tag.</p>
     <?php endif; ?>
+    <div class="pagination-container">
+        <ul class="pagination">
+            <li class="<?php if ($data['pageNum'] <= 1){echo 'disabled';} ?>">
+                <a href="<?php if($data['pageNum'] <= 1){echo 'javascript:void(0)';}else{echo WEB_PATH . 'index/index/tag/' . $data['tag'] . '/page/' . ($data['pageNum']-1) . '/';} ?>">&laquo;</a>
+            </li>
+            <?php foreach ($data['pages'] as $pageNumber): ?>
+                <li class="<?php if ($data['pageNum'] == $pageNumber){echo 'active';} ?>">
+                    <a href="<?php if($data['pageNum'] == $pageNumber){echo 'javascript:void(0)';}else{echo WEB_PATH . 'index/index/tag/' . $data['tag'] . '/page/' . $pageNumber . '/';} ?>">
+                        <?php echo $pageNumber ?>
+                    </a>
+                </li>
+            <?php endforeach; ?>
+            <li class="<?php if ($data['pageNum'] >= $data['pageCount']){echo 'disabled';} ?>">
+                <a href="<?php if($data['pageNum'] >= $data['pageCount']){echo 'javascript:void(0)';}else{echo WEB_PATH . 'index/index/tag/' . $data['tag'] . '/page/' . ($data['pageNum']+1) . '/';} ?>">&raquo;</a>
+            </li>
+        </ul>
+    </div>
 </div>
 

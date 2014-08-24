@@ -32,20 +32,29 @@ class IndexController extends Controller
     
     public function index(){
         
-        //Init Get and Post data.
+        //Init Get data and validate.
         $tag = (isset($this->parameters['tag'])) ? $this->parameters['tag'] : 'lol';
+        $page = (isset($this->parameters['page'])) ? (int) $this->parameters['page'] : 1;
+        if ($page < 1){
+            $page = 1;
+        }
+        
         
         //Init Models
         $post = new Post();
+        $pager = new Pager();
         
         //Init view data
         $data = [];
         $data['user'] = $this->user;
         $data['tag'] = $tag;
-        $data['tumblrPosts'] = $post->getTaggedTumblrPosts($tag);
+        $tumblrPosts = $post->getTaggedTumblrPosts($tag);
         
-        //Limit posts
-        $data['tumblrPosts'] = array_slice($data['tumblrPosts'], 0, 5);
+        //Paginate posts
+        $data['tumblrPosts'] = $pager->paginatePosts($tumblrPosts, $page, 16);
+        $data['pageCount'] = $pager->getPageCount($tumblrPosts, 16);
+        $data['pages'] = $pager->getPagesArray($data['pageCount']);
+        $data['pageNum'] = $page;
         
         //Load template
         $this->view->loadTemplate('home', $data);
