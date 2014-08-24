@@ -29,6 +29,7 @@ server {
 
   # Custom 404 page
   error_page 404 /404.html;
+  fastcgi_intercept_errors on;
 
   # Include the basic h5bp config set
   include h5bp/basic.conf;

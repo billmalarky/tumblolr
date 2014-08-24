@@ -76,7 +76,9 @@ class Router
             $controller = new $controllerName($user, $this->parameters, $this->queryString, $view);
         }
         else{
-            throw new Exception($controllerName . ' controller does not exist or is not readable.');
+            //If controller doesn't exist or can't be read, send 404 status code.
+            header("HTTP/1.0 404 Not Found");
+            die();
         }
         
         //Call controller action method. If method doesn't exist, default to index action method.
