@@ -26,7 +26,7 @@
             <div class="post">
                 <h4>
                     <a target="_blank" href="<?php echo $post->post_url ?>">
-                        <?php echo $post->blog_name ?>
+                        <span class="tumblr-post-blog-name"><?php echo $post->blog_name ?></span>
                         <?php if (isset($post->title)){echo ' | ' . $post->title;}?>
                         <?php if (isset($post->source_title)){echo ' | ' . $post->source_title;}?>
                     </a>
@@ -48,8 +48,8 @@
                                 <?php if (!empty($photo->caption)): ?>
                                     <div class="tumblr-post-photo-caption"><?php echo $photo->caption ?></div>
                                 <?php endif; ?>
-                                    <div class="tumblr-post-photo-image">
-                                        <img width="500" src="<?php echo $photo->original_size->url ?>">
+                                    <div class="tumblr-post-photo-image-container">
+                                        <img class="tumblr-post-photo-image" width="500" src="<?php echo $photo->original_size->url ?>">
                                     </div>
                             </div>
                         <?php endforeach; ?>

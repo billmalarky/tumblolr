@@ -27,8 +27,8 @@
 
             return instantiated;
         },
-        submitSort: function(){
-            var value = $(this).attr('data-sort');
+        submitSort: function($button){
+            var value = $button.attr('data-sort');
             window.location.href = window.tumblolr.CoreObj.coreProperties.baseUrl+'sorter/reorder/sort/'+value+'/';
         },
         submitOrder: function(){

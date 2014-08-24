@@ -1,8 +1,15 @@
-/**
+/*
 *
-* Custom Styles.
+* Custom styling
 *
 */
 .sorting-buttons-container{
     margin-top: 20px;
+}
+.tumblr-post-photo-image{
+    cursor: pointer;
+}
+.image-editor-container{
+    position: absolute;
+    top: 10px;
 }

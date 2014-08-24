@@ -9,6 +9,7 @@
     
     <script type="text/javascript" src="<?php echo $this->getUrl() ?>packages/jquery/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="<?php echo $this->getUrl() ?>packages/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="<?php echo $this->getUrl() ?>packages/pixlr/pixlr.js"></script>
     
     <?php /* Bootstrap Javascript */ ?>
     <script type="text/javascript">
@@ -22,6 +23,7 @@
     </script>
     <script type="text/javascript" src="<?php echo $this->getUrl() ?>js/tagform.js"></script>
     <script type="text/javascript" src="<?php echo $this->getUrl() ?>js/sortform.js"></script>
+    <script type="text/javascript" src="<?php echo $this->getUrl() ?>js/imageeditor.js"></script>
     <script type="text/javascript" src="<?php echo $this->getUrl() ?>js/main.js"></script>
     
 </head>
