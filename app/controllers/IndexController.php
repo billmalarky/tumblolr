@@ -56,7 +56,7 @@ class IndexController extends Controller
         $data['orderToggle'] = ($order == 'desc') ? 'asc': 'desc';
         
         //Paginate posts
-        $data['tumblrPosts'] = $pager->paginatePosts($totalPosts, $page, 16);
+        $data['tumblrPosts'] = $pager->paginatePosts($sortedPosts, $page, 16);
         $data['pageCount'] = $pager->getPageCount($totalPosts, 16);
         $data['pages'] = $pager->getPagesArray($data['pageCount']);
         $data['pageNum'] = $page;

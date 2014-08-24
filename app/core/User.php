@@ -74,4 +74,49 @@ class User extends Model
         }
     }
     
+    /**
+     * Sets the sort type to the user session.
+     * 
+     * @param string $sortType
+     */
+    public function setSortType($sortType){
+        //Update sort value in session
+        $this->setSessionData('sort', $sortType);
+        
+        $order = ($this->getSessionData('order')) ? $this->getSessionData('order'): 'desc';
+        $orderText = ($order == 'desc') ? 'Descending' : 'Ascending';
+        
+        //Add success message to user's flash data.
+        $this->setFlashData(
+                'message', 
+                array('status' => 'alert-success', 'content' => 'Order by ' . ucfirst($sortType) . ' ' .$orderText)
+        );
+        
+    }
+    
+    /**
+     * Sets the sort order to the user session.
+     * 
+     * @param string $sortType
+     */
+    public function toggleSortOrder(){
+        
+        //Get new order value
+        $order = ($this->getSessionData('order')) ? $this->getSessionData('order'): 'desc';
+        $newOrder = ($order == 'desc') ? 'asc' : 'desc';
+        
+        //Update order value in session
+        $this->setSessionData('order', $newOrder);
+        
+        $sort = ($this->getSessionData('sort')) ? $this->getSessionData('sort'): 'date';
+        $orderText = ($newOrder == 'desc') ? 'Descending' : 'Ascending';
+        
+        //Add success message to user's flash data.
+        $this->setFlashData(
+                'message', 
+                array('status' => 'alert-success', 'content' => 'Order by ' . ucfirst($sort) . ' ' .$orderText)
+        );
+        
+    }
+    
 }

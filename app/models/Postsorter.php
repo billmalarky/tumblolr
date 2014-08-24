@@ -14,7 +14,7 @@ class Postsorter
     }
     
     public function sortPosts(Array $posts){
-        $this->sort = 'notes';
+        
         if ($this->sort == 'date'){
             $posts = $this->sortPostsByDate($posts);
         }
