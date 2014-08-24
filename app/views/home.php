@@ -18,7 +18,7 @@
         <?php foreach ($data['tumblrPosts'] as $post): ?>
             <div class="post">
                 <h5>
-                    <a href="<?php echo $post->post_url ?>">
+                    <a target="_blank" href="<?php echo $post->post_url ?>">
                         <?php echo $post->blog_name ?>
                         <?php if (isset($post->title)){echo ' | ' . $post->title;}?>
                         <?php if (isset($post->source_title)){echo ' | ' . $post->source_title;}?>
