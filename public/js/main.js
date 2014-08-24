@@ -48,8 +48,8 @@
             e.preventDefault();
             
             var 
-            iconUrl = window.location.hostname === 'tumblrtest.local' ? 'http://i.imgur.com/Idn41J4.png' : window.tumblolr.CoreObj.coreProperties.baseUrl+'img/tumblolr-icon-small.png',
-            imageUrl = window.location.hostname === 'tumblrtest.local' ? 'http://i.imgur.com/7ojASuE.png' : $(this).attr('src'),
+            iconUrl = window.location.hostname === 'tumblolr.local' ? 'http://i.imgur.com/Idn41J4.png' : window.tumblolr.CoreObj.coreProperties.baseUrl+'img/tumblolr-icon-small.png',
+            imageUrl = window.location.hostname === 'tumblolr.local' ? 'http://i.imgur.com/7ojASuE.png' : $(this).attr('src'),
             title = $(this).parents('.post').find('.tumblr-post-blog-name').text(),
             target = window.tumblolr.CoreObj.coreProperties.baseUrl+'editor/success',
             exitUrl = window.tumblolr.CoreObj.coreProperties.baseUrl+'editor/quit';

@@ -3,10 +3,10 @@
 ### IMPORTANT STEPS FOR RUNNING VAGRANT ON WINDOWS 7
 ### Start up virtualbox in admin mode by right clicking on virtualbox and clicking "run as administrator" and then open up cygwin terminal as an administrator as well. Both programs must be run as admin for symlinking to work on windows 7.
 
-SITE_DIR="/var/www/html/tumblrtest.local" # The path to the web application on the server (default: /var/www/html)
-SITE_PUB_DIR="/var/www/html/tumblrtest.local/public" # The path to the application public web folder.
+SITE_DIR="/var/www/html/tumblolr.local" # The path to the web application on the server (default: /var/www/html)
+SITE_PUB_DIR="/var/www/html/tumblolr.local/public" # The path to the application public web folder.
 VAGRANT_DATA_DIR="/vagrant/vagrant"
-DB_NAME="tumblrtest" #name of mysql DB.
+DB_NAME="tumblolr" #name of mysql DB.
 
 
 
@@ -20,9 +20,7 @@ yum install -y expect
 yum install -y mysql mysql-server
 service mysqld start
 
-# Run mysql installation expect scripts
-#expect $VAGRANT_DATA_DIR/mysql/mysql-secure-install.expect
-#expect $VAGRANT_DATA_DIR/mysql/mysql-create-db.expect
+
 
 # Install nginx and php-fpm
 yum install -y nginx
@@ -70,7 +68,7 @@ chmod -R 0777 /var/lib/php/session
 
 mv /etc/nginx /etc/nginx-orig
 ln -s $VAGRANT_DATA_DIR/nginx/server-configs-nginx-master /etc/nginx
-ln -s /etc/nginx/sites-available/tumblrtest.local /etc/nginx/sites-enabled/tumblrtest.local
+ln -s /etc/nginx/sites-available/tumblolr.local /etc/nginx/sites-enabled/tumblolr.local
 mkdir -p /usr/share/nginx/logs # nginx requires this folder to place a "static.log" file in...
 
 mv /etc/php-fpm.d/www.conf /etc/php-fpm.d/www.conf.orig
@@ -88,9 +86,11 @@ service nginx restart
 service php-fpm restart
 service mysqld restart
 
+#run composer install
+cd /vagrant
+php /usr/local/bin/composer install
+
 # Build DB structure via migration
 php /vagrant/app/migrations/install-0.0.1.php
 
 echo "Server provisioning complete!"
-echo "Now you must run sudo /usr/bin/mysql_secure_installation. Set mysql root password to \"root\""
-echo "Finally, create DB with mysql -u root -p -e \"create database tumblrtest\""

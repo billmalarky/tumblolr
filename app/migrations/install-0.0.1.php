@@ -3,9 +3,11 @@
  * This is a simple PHP script that runs the database schema installation.
  */
 
-$db = new PDO('mysql:host=127.0.0.1;dbname=tumblrtest', 'root', 'root');
+$db = new PDO('mysql:host=127.0.0.1', 'root', '');
 
-$result = $db->query("CREATE TABLE IF NOT EXISTS `tumblrtest`.`posts` (
+$result = $db->query("CREATE DATABASE IF NOT EXISTS tumblolr");
+
+$result = $db->query("CREATE TABLE IF NOT EXISTS `tumblolr`.`posts` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `tag` VARCHAR(255) NOT NULL,
   `post_data` TEXT NOT NULL,

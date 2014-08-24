@@ -1,7 +1,7 @@
 #!/usr/bin/expect -f
 
-spawn mysql -u root -p -e "create database tumblrtest"
+spawn mysql -u root -p -e "create database tumblolr"
 sleep 1
 expect "Enter password:"
-send "root\r"
+send "\r"
 sleep 2

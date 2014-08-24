@@ -2,10 +2,10 @@ Setup Instructions
 
 Add the following lines to your hosts file:
 # Vagrant
-192.168.100.100 tumblrtest.local
-192.168.100.100 www.tumblrtest.local
+192.168.100.100 tumblolr.local
+192.168.100.100 www.tumblolr.local
 
-Run "vagrant up" in project directory (with vagrant installed).
+Run "vagrant up" in project directory (with vagrant and vitualbox installed).
 Note that this vagrant install makes use of symlinks, so in windows 7 you need to run virtualbox and cygwin as an administrator.
 
 //mysql_secure_install and create database as well as import data stuff should be scripted in vagant boostrap

@@ -8,10 +8,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #===================================== CONFIGURATION =====================================#
   #=========================================================================================#
   
-  VB_NAME = "tumblrtest_virtualbox"
+  VB_NAME = "tumblolr_virtualbox"
   
   # HOSTNAME
-  config.vm.hostname = "tumblrtest.local"
+  config.vm.hostname = "tumblolr.local"
 
   # INTERNAL NETWORK
   config.vm.network :private_network, ip: "192.168.100.100"

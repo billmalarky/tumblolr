@@ -12,11 +12,11 @@ send "y\r"
 
 sleep 1
 expect "New password:"
-send "root\r"
+send "\r"
 
 sleep 1
 expect "Re-enter new password:"
-send "root\r"
+send "\r"
 
 sleep 2
 send "y\r"

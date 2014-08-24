@@ -10,7 +10,7 @@ class Databaseinstance
     	
         if (Databaseinstance::$db === null){
             try{
-                Databaseinstance::$db = new PDO('mysql:host=127.0.0.1;dbname=tumblrtest', 'root', 'root');
+                Databaseinstance::$db = new PDO('mysql:host=127.0.0.1;dbname=tumblolr', 'root', '');
             } catch (PDOException $e) {
                 die($e->getMessage());
             }
