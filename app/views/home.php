@@ -5,19 +5,17 @@
         <p>Enter a tag to see posts from tumblr with that tag.</p>
     </div>
 <?php endif; ?>
-<form id="tagForm" class="form-inline" role="form">
+<div id="tagForm" class="form-inline" role="form">
   <div class="form-group">
     <label class="sr-only" for="postTagInput">Post Tag</label>
     <input type="text" name="tag" class="form-control" id="postTagInput" placeholder="Enter Post Tag">
   </div>
   <button id="tagFormSubmitButton" type="button" class="btn btn-default">Load Tagged Posts</button>
-</form>
+</div>
 <div class="sorting-buttons-container">
-    <form class="sorting-buttons-form">
-        <button id="sortTypeButton" data-sort="date" type="button" class="btn btn-default<?php if($data['sort']=='date'){echo ' disabled';} ?>">Sort By Date</button>
-        <button id="sortTypeButton" data-sort="notes" type="button" class="btn btn-default<?php if($data['sort']=='notes'){echo ' disabled';} ?>">Sort By Notes</button>
-        <button id="orderToggleButton" type="button" class="btn btn-default">Toggle Order</button>
-    </form>
+    <button id="sortTypeButton" data-sort="date" type="button" class="btn btn-default<?php if($data['sort']=='date'){echo ' disabled';} ?>">Sort By Date</button>
+    <button id="sortTypeButton" data-sort="notes" type="button" class="btn btn-default<?php if($data['sort']=='notes'){echo ' disabled';} ?>">Sort By Notes</button>
+    <button id="orderToggleButton" type="button" class="btn btn-default">Toggle Order</button>
 </div>
 <h3>Showing posts tagged with <?php echo $data['tag'] ?></h3>
 <div class="posts">

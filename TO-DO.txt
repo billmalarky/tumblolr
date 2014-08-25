@@ -12,13 +12,15 @@ iconUrl = window.location.hostname === 'tumblrtest.local' ? 'http://i.imgur.com/
             imageUrl = window.location.hostname === 'tumblrtest.local' ? 'http://i.imgur.com/7ojASuE.png' : $(this).attr('src'),
 
 
-Server setup
-composer install can prob be run in bootstrap
 
 iframe clse hijacks scroll
 
-update welcome message to say click on images to edit. Do gifs work?
+Do gifs work?
 
 Deploy to digitalocean
 
 Create how to edit image page.
+
+SORTING DOESN'T REDIRECT CORRECTLY
+
+fix this http://tumblolr.local/?tag=bike

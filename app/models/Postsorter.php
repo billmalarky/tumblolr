@@ -66,6 +66,15 @@ class Postsorter
         }
         else{
             usort($posts, function($a, $b){
+                
+                //It appears not all posts have note counts? Recieved undefined error here a few times.
+                if (!isset($a->note_count)){
+                    $a->note_count = 0;
+                }
+                if (!isset($b->note_count)){
+                    $b->note_count = 0;
+                }
+                
                 if ($a->note_count == $b->note_count){
                     return 0;
                 }
