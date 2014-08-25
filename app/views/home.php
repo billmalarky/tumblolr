@@ -13,6 +13,7 @@
   <button id="tagFormSubmitButton" type="button" class="btn btn-default">Load Tagged Posts</button>
 </div>
 <div class="sorting-buttons-container">
+    <input id="currentTagValue" name="currentTagValue" type="hidden" value="<?php echo $data['tag'] ?>">
     <button id="sortTypeButton" data-sort="date" type="button" class="btn btn-default<?php if($data['sort']=='date'){echo ' disabled';} ?>">Sort By Date</button>
     <button id="sortTypeButton" data-sort="notes" type="button" class="btn btn-default<?php if($data['sort']=='notes'){echo ' disabled';} ?>">Sort By Notes</button>
     <button id="orderToggleButton" type="button" class="btn btn-default">Toggle Order</button>

@@ -25,10 +25,6 @@ class SorterController extends Controller
         ){
             //Set the sort type in user's session.
             $this->user->setSortType($this->parameters['sort']);
-            
-            //Redirect to home.
-            header('Location: ' . $this->view->getUrl());
-            
         }
         else if (
             isset($this->parameters['order']) 
@@ -36,18 +32,20 @@ class SorterController extends Controller
         ){
             //Toggle the sort order in user's session.
             $this->user->toggleSortOrder();
-            
-            //Redirect to home.
-            header('Location: ' . $this->view->getUrl());
-            
         }
         else{
-            
             //Add failure warning message flash data and redirect to home.
             $this->user->setFlashData('message', array('status' => 'alert-danger', 'content' => 'Failed to set sort type. Please try again.'));
-            header('Location: ' . $this->view->getUrl());
-            
         }
+        
+        //Redirect user appropriately
+        if (isset($this->parameters['tag'])){
+            header('Location: ' . $this->view->getUrl('index/index/', array('tag'=>$this->parameters['tag'])));
+        }
+        else{
+            header('Location: ' . $this->view->getUrl());
+        }
+        
         
     }
     

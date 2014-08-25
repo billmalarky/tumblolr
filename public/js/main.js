@@ -35,12 +35,14 @@
         //Sort Form Button clicks
         $body.on('click','#sortTypeButton', function(e){
             e.preventDefault();
-            window.tumblolr.SortformObj.submitSort.call(window.tumblolr.SortformObj, $(this));
+            var currentTag = $('#currentTagValue').val();
+            window.tumblolr.SortformObj.submitSort.call(window.tumblolr.SortformObj, $(this), currentTag);
         });
         
         $body.on('click','#orderToggleButton', function(e){
             e.preventDefault();
-            window.tumblolr.SortformObj.submitOrder.call(window.tumblolr.SortformObj);
+            var currentTag = $('#currentTagValue').val();
+            window.tumblolr.SortformObj.submitOrder.call(window.tumblolr.SortformObj, currentTag);
         });
         
         //Image editor events

@@ -27,12 +27,12 @@
 
             return instantiated;
         },
-        submitSort: function($button){
+        submitSort: function($button, currentTag){
             var value = $button.attr('data-sort');
-            window.location.href = window.tumblolr.CoreObj.coreProperties.baseUrl+'sorter/reorder/sort/'+value+'/';
+            window.location.href = window.tumblolr.CoreObj.coreProperties.baseUrl+'sorter/reorder/sort/'+value+'/tag/'+currentTag+'/';
         },
-        submitOrder: function(){
-            window.location.href = window.tumblolr.CoreObj.coreProperties.baseUrl+'sorter/reorder/order/toggle/';
+        submitOrder: function(currentTag){
+            window.location.href = window.tumblolr.CoreObj.coreProperties.baseUrl+'sorter/reorder/order/toggle/tag/'+currentTag+'/';
         }
     };
     
