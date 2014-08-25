@@ -12,6 +12,7 @@
         <div class="collapse navbar-collapse" id="bs-tumblolr-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li><a href="<?php echo $this->getUrl() ?>" class="">Home</a></li>
+                <li><a href="<?php echo $this->getUrl('help/photoediting/') ?>" class="">How to Edit Photos</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">

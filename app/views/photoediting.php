@@ -1,0 +1,7 @@
+<h3>How to Edit Tumblr Photos</h3>
+<div class="content">
+    <p><b>Step 1 | Launching Editor:</b> Find an image post that you want to edit. At this time the editor only works with image only posts, so text posts that happen to have images embedded don't work. You can tell if a post id editable by placing your mouse over the image. If a little pointer hand pops up, you're good to go. Clicking the image will launch the Pixlr photo editor.</p>
+    <p><b>Step 2 | Editing Image:</b> Once the editor is fully loaded, go ahead and edit the image. The Pixlr image editor is like a simplified version of photoshop, so if you know photoshop using pixlr will be second nature to you.</p>
+    <p><b>Step 3 | Saving Image:</b> When you are done editing, click the "file" tab in the upper left hand corner of the Pixlr window, then click "save." After the save window pops up, just click the "okay" button to complete editing. If you want to cancel image editing from inside the Pixlr editor, you can go to the upper left hand corner and click "file" then "exit."</p>
+    <p><b>Step 4 | Sharing on Tumblr:</b> After saving your image in the Pixlr editor, a new window should appear with your new image in it. Click the "Share on Tumblr" button to quickly post your new creation on tumblr. </p>
+</div>
