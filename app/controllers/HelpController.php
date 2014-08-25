@@ -22,4 +22,15 @@ class HelpController extends Controller
         
     }
     
+    public function about(){
+        
+        //Init view data
+        $data = [];
+        $data['user'] = $this->user;
+        
+        //Load template
+        $this->view->loadTemplate('about', $data);
+        
+    }
+    
 }
