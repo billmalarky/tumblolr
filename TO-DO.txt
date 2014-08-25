@@ -6,21 +6,5 @@ App is safe from sql injection, but still vulnerable to CSRF and potentially vul
 Caching
 Would have used redis instead of mySql for data caching. With mysql will have to have some sort of pruning script. Redis could just let data expire.
 
-imgur to my server
-update js code in main.js to point to my server once it is live.
-iconUrl = window.location.hostname === 'tumblrtest.local' ? 'http://i.imgur.com/Idn41J4.png' : window.tumblolr.CoreObj.coreProperties.baseUrl+'img/tumblolr-icon-small.png',
-            imageUrl = window.location.hostname === 'tumblrtest.local' ? 'http://i.imgur.com/7ojASuE.png' : $(this).attr('src'),
-
-
-
-iframe clse hijacks scroll
-
-Do gifs work?
-
-Deploy to digitalocean
-
 Create how to edit image page.
 
-SORTING DOESN'T REDIRECT CORRECTLY
-
-fix this http://tumblolr.local/?tag=bike
