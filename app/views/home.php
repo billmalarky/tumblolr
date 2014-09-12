@@ -1,7 +1,7 @@
 <div class="alert alert-danger">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
         <h3>Important Update:</h3>
-        <p>As of 8/28/2014, Pixlr the pixlr API is no longer being supported by Autodesk (the company that owns Pixlr). Unfortunately as a result, photo editing via Tumblolr no longer works.</p>
+        <p>As of 8/28/2014, The Pixlr API is no longer being supported by Autodesk (the company that owns Pixlr). Unfortunately as a result, photo editing via Tumblolr no longer works.</p>
     </div>
 <?php if ($data['user']->showWelcomeMessage()): ?>
     <div class="alert alert-dismissable alert-success">
