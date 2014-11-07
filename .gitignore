@@ -6,5 +6,5 @@ composer.lock
 /vendor
 
 # Ignore these files that have config info
-app/core/Databaseinstance.php
+# app/core/Databaseinstance.php
 app/migrations/install-0.0.1.php
